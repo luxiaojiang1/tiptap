@@ -2,6 +2,10 @@
   "extends": "@l_h5_tool/ts-config/vue-app.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "types": ["vite/client"],
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,

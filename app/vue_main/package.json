@@ -31,7 +31,7 @@
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
     "stylelint": "catalog:",
-    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
     "vite": "catalog:",
