@@ -1,0 +1,40 @@
+{
+  "name": "vue_main",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "lint:style": "stylelint \"src/**/*.{css,vue}\"",
+    "lint:style:fix": "stylelint \"src/**/*.{css,vue}\" --fix",
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@l_h5_tool/h5_shoelace_ui": "catalog:",
+    "@l_h5_tool/log": "catalog:",
+    "@tiptap/core": "workspace:^",
+    "@tiptap/pm": "workspace:^",
+    "@tiptap/starter-kit": "workspace:*",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@l_h5_tool/eslint-config": "catalog:",
+    "@l_h5_tool/stylelint-config": "catalog:",
+    "@l_h5_tool/ts-config": "catalog:",
+    "@types/node": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/tsconfig": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "stylelint": "catalog:",
+    "stylelint-config-standard": "^39.0.1",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vite": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}

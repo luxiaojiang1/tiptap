@@ -2,3 +2,23 @@ packages:
   - 'packages/*'
   - 'packages-deprecated/*'
   - 'demos'
+  - 'app/*'
+
+catalog:
+  "@l_h5_tool/eslint-config": ^0.0.4
+  "@l_h5_tool/h5_shoelace_ui": ^0.0.2
+  "@l_h5_tool/stylelint-config": ^0.0.3
+  "@l_h5_tool/ts-config": ^0.0.2
+  "@l_h5_tool/log": "^0.1.8"
+  "@types/node": ^24.6.0
+  "@vitejs/plugin-vue": ^6.0.1
+  "@vue/tsconfig": ^0.8.1
+  eslint: ^9.39.1
+  eslint-plugin-react-hooks: ^7.0.1
+  eslint-plugin-react-refresh: ^0.4.24
+  stylelint: ^16.1.0
+  typescript: ~5.9.3
+  typescript-eslint: ^8.46.4
+  vite: ^5.0.13
+  vue: ^3.5.22
+  vue-tsc: ^3.1.0
