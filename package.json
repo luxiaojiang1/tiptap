@@ -25,7 +25,7 @@
     "test": "turbo run build && pnpm run test:e2e && pnpm run test:unit",
     "build": "turbo build",
     "build:demos": "pnpm --prefix demos run build:demos",
-    "serve": "pnpm run build:demos && http-server ./demos/dist -s -p 3000",
+    "serve": "pnpm run build:demos && http-server ./demos/dist -s -p 3001",
     "build:ci": "turbo run build",
     "publish": "pnpm run build && pnpm changeset publish",
     "clean:packages": "rm -rf ./packages/*/dist && rm -rf ./packages/pm/*/dist && rm -rf ./packages-deprecated/*/dist",
