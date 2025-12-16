@@ -4,68 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    '@l_h5_tool/eslint-config':
-      specifier: ^0.0.4
-      version: 0.0.4
-    '@l_h5_tool/h5_shoelace_ui':
-      specifier: ^0.0.2
-      version: 0.0.2
-    '@l_h5_tool/log':
-      specifier: ^0.1.8
-      version: 0.1.8
-    '@l_h5_tool/stylelint-config':
-      specifier: ^0.0.3
-      version: 0.0.3
-    '@l_h5_tool/ts-config':
-      specifier: ^0.0.2
-      version: 0.0.2
-    '@types/node':
-      specifier: ^24.6.0
-      version: 24.10.3
-    '@vitejs/plugin-vue':
-      specifier: ^6.0.1
-      version: 6.0.3
-    '@vue/tsconfig':
-      specifier: ^0.8.1
-      version: 0.8.1
-    eslint:
-      specifier: ^9.39.1
-      version: 9.39.2
-    eslint-plugin-react-hooks:
-      specifier: ^7.0.1
-      version: 7.0.1
-    eslint-plugin-react-refresh:
-      specifier: ^0.4.24
-      version: 0.4.24
-    stylelint:
-      specifier: ^16.1.0
-      version: 16.26.1
-    stylelint-config-standard:
-      specifier: ^39.0.1
-      version: 39.0.1
-    typescript:
-      specifier: ~5.9.3
-      version: 5.9.3
-    typescript-eslint:
-      specifier: ^8.46.4
-      version: 8.49.0
-    vite:
-      specifier: ^5.0.13
-      version: 5.4.20
-    vue:
-      specifier: ^3.5.22
-      version: 3.5.25
-    vue-tsc:
-      specifier: ^3.1.0
-      version: 3.1.8
-
-patchedDependencies:
-  '@changesets/assemble-release-plan':
-    hash: k7lv6yvbsp2zaevp6zj5au6glm
-    path: patches/@changesets__assemble-release-plan.patch
-
 importers:
 
   .:
@@ -314,6 +252,15 @@ importers:
       vite:
         specifier: ^7.2.4
         version: 7.3.0(@types/node@24.10.3)(jiti@2.6.1)(sass-embedded@1.97.0)(sass@1.97.0)(terser@5.37.0)(yaml@2.8.2)
+
+  app/server:
+    dependencies:
+      '@hocuspocus/server':
+        specifier: ^3.4.3
+        version: 3.4.3(y-protocols@1.0.6(yjs@13.6.23))(yjs@13.6.23)
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
   app/vue_main:
     dependencies:
@@ -3111,8 +3058,17 @@ packages:
   '@hocuspocus/common@2.15.0':
     resolution: {integrity: sha512-xmapO5PnQvf3lYFWrrOaYPjmdrEIVYOpyjInuiCkCzkUmMQCZDVM3wXjPdMJbgAtQXEPUDVkwpr6dJTLjZgTTQ==}
 
+  '@hocuspocus/common@3.4.3':
+    resolution: {integrity: sha512-wnBBO9sWcVAoUPEXN1qO+zk3HaEF9VTemxB6kjuuH6e1dHnD0v12m4P4X1wiZVhmMIX/PMl/fu3MGtYWQJz8gA==}
+
   '@hocuspocus/provider@2.15.0':
     resolution: {integrity: sha512-Zd1YYVIg1PYfxqMbwWlb89+R/pOGg+UQZWBr7u3g2RDOttdM8F9zzyUzm9XcI7CAGZAUvuqB/oiSsMyGxDsuNg==}
+    peerDependencies:
+      y-protocols: ^1.0.6
+      yjs: ^13.6.8
+
+  '@hocuspocus/server@3.4.3':
+    resolution: {integrity: sha512-a9bqAXUMBo9YBeuzqNf9C3eVbu1RIWUrtmFMGq+ZssQr3Jugt/5PCkZskgqhJNvPkyTARHcUtN80j/SDLylZmg==}
     peerDependencies:
       y-protocols: ^1.0.6
       yjs: ^13.6.8
@@ -4859,6 +4815,12 @@ packages:
     engines: {node: ^18.18.0 || >=20.9.0}
     peerDependencies:
       '@astrojs/compiler': '>=0.27.0'
+
+  async-lock@1.4.1:
+    resolution: {integrity: sha512-Az2ZTpuytrtqENulXwO3GGv1Bztugx6TT37NIo7imr/Qo0gsYiGtSdBa2B6fsXhTpVZDNfu1Qn3pk531e3q+nQ==}
+
+  async-mutex@0.5.0:
+    resolution: {integrity: sha512-1A94B18jkJ3DYq284ohPxoXbfTA5HsQ7/Mf4DEhcyLx3Bz27Rh59iScbB6EPiP+B+joue6YCxcMXSbFC1tZKwA==}
 
   async@2.6.4:
     resolution: {integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==}
@@ -11839,11 +11801,29 @@ snapshots:
     dependencies:
       lib0: 0.2.99
 
+  '@hocuspocus/common@3.4.3':
+    dependencies:
+      lib0: 0.2.114
+
   '@hocuspocus/provider@2.15.0(y-protocols@1.0.6(yjs@13.6.23))(yjs@13.6.23)':
     dependencies:
       '@hocuspocus/common': 2.15.0
       '@lifeomic/attempt': 3.1.0
       lib0: 0.2.99
+      ws: 8.18.0
+      y-protocols: 1.0.6(yjs@13.6.23)
+      yjs: 13.6.23
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@hocuspocus/server@3.4.3(y-protocols@1.0.6(yjs@13.6.23))(yjs@13.6.23)':
+    dependencies:
+      '@hocuspocus/common': 3.4.3
+      async-lock: 1.4.1
+      async-mutex: 0.5.0
+      kleur: 4.1.5
+      lib0: 0.2.114
       ws: 8.18.0
       y-protocols: 1.0.6(yjs@13.6.23)
       yjs: 13.6.23
@@ -13893,6 +13873,12 @@ snapshots:
     dependencies:
       '@astrojs/compiler': 2.13.0
       synckit: 0.11.11
+
+  async-lock@1.4.1: {}
+
+  async-mutex@0.5.0:
+    dependencies:
+      tslib: 2.8.1
 
   async@2.6.4:
     dependencies:
@@ -19653,7 +19639,7 @@ snapshots:
 
   y-protocols@1.0.6(yjs@13.6.23):
     dependencies:
-      lib0: 0.2.99
+      lib0: 0.2.114
       yjs: 13.6.23
 
   y-webrtc@10.3.0(yjs@13.6.23):
@@ -19705,7 +19691,7 @@ snapshots:
 
   yjs@13.6.23:
     dependencies:
-      lib0: 0.2.99
+      lib0: 0.2.114
 
   yocto-queue@0.1.0: {}
 
