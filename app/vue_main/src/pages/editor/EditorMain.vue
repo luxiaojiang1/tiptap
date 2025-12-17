@@ -28,7 +28,9 @@ const 光标测试 = [
   {
     text: '获取当前光标',
     onClick: () => {
-      if (!editorInstance || editorInstance.isDestroyed) {return}
+      if (!editorInstance || editorInstance.isDestroyed) {
+        return
+      }
       const { from, to, $anchor, $head } = editorInstance.state.selection
       console.log('选区内容:', editorInstance.state.doc.textBetween(from, to))
       console.log('选区信息:', {
@@ -43,7 +45,9 @@ const 光标测试 = [
   {
     text: '设置光标为第一行第二列',
     onClick: () => {
-      if (!editorInstance || editorInstance.isDestroyed) {return}
+      if (!editorInstance || editorInstance.isDestroyed) {
+        return
+      }
       // 设置光标到位置2（第一行第二列，0-based索引从1开始因为有段落标签）
       editorInstance.commands.setTextSelection(2)
       editorInstance.commands.focus()
@@ -53,7 +57,9 @@ const 光标测试 = [
   {
     text: '选中测试',
     onClick: () => {
-      if (!editorInstance || editorInstance.isDestroyed) {return}
+      if (!editorInstance || editorInstance.isDestroyed) {
+        return
+      }
       // 选中前5个字符
       const from = 1
       const to = Math.min(6, editorInstance.state.doc.content.size - 1)
@@ -65,6 +71,12 @@ const 光标测试 = [
 ]
 
 const 内容测试 = [
+  {
+    text: '当前位置插入一个图片上传',
+    onClick: () => {
+      editorInstance.can().insertContent({ type: 'imageUpload' })
+    },
+  },
   {
     text: '当前位置插入一个字符',
     onClick: () => {
@@ -81,7 +93,9 @@ const 内容测试 = [
   {
     text: '当前位置删除一个字符',
     onClick: () => {
-      if (!editorInstance || editorInstance.isDestroyed) {return}
+      if (!editorInstance || editorInstance.isDestroyed) {
+        return
+      }
       const { from } = editorInstance.state.selection
       if (from > 1) {
         // 删除光标前一个字符
@@ -94,7 +108,7 @@ const 内容测试 = [
     },
   },
   {
-    text: '其他',
+    text: '插入文本',
     onClick: () => {
       editorInstance
         .chain()

@@ -19,7 +19,7 @@
   }
 }
 
-/* Ensure each top-level node has relative positioning 
+/* Ensure each top-level node has relative positioning
    so absolutely positioned placeholders work correctly */
 .tiptap.ProseMirror > * {
   position: relative;
@@ -41,6 +41,9 @@
     margin-top: 20px;
   }
 
+  &::selection {
+    background-color: black;
+  }
   // Selection styles
   &:not(.readonly):not(.ProseMirror-hideselection) {
     ::selection {

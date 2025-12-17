@@ -1,12 +1,12 @@
 'use client'
 
-import { useRef, useState } from 'react'
 import type { NodeViewProps } from '@tiptap/react'
 import { NodeViewWrapper } from '@tiptap/react'
-import { Button } from '@/components/tiptap-ui-primitive/button'
+import { useRef, useState } from 'react'
 import { CloseIcon } from '@/components/tiptap-icons/close-icon'
-import '@/components/tiptap-node/image-upload-node/image-upload-node.scss'
+import { Button } from '@/components/tiptap-ui-primitive/button'
 import { focusNextNode, isValidPosition } from '@/lib/tiptap-utils'
+import '@/components/tiptap-node/image-upload-node/image-upload-node.scss'
 
 export interface FileItem {
   /**
@@ -328,7 +328,7 @@ const ImageUploadPreview: React.FC<ImageUploadPreviewProps> = ({ fileItem, onRem
     const k = 1024
     const sizes = ['Bytes', 'KB', 'MB', 'GB']
     const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`
+    return `${Number.parseFloat((bytes / k ** i).toFixed(2))} ${sizes[i]}`
   }
 
   return (
@@ -382,7 +382,9 @@ const DropZoneContent: React.FC<{ maxSize: number; limit: number }> = ({ maxSize
         <em>Click to upload</em> or drag and drop
       </span>
       <span className="tiptap-image-upload-subtext">
-        Maximum {limit} file{limit === 1 ? '' : 's'}, {maxSize / 1024 / 1024}MB each.
+        Maximum {limit} file
+        {limit === 1 ? '' : 's'}, {maxSize / 1024 / 1024}
+        MB each.
       </span>
     </div>
   </>
@@ -466,7 +468,10 @@ export const ImageUploadNode: React.FC<NodeViewProps> = props => {
         <div className="tiptap-image-upload-previews">
           {fileItems.length > 1 && (
             <div className="tiptap-image-upload-header">
-              <span>Uploading {fileItems.length} files</span>
+              <span>
+                Uploading
+                {fileItems.length} files
+              </span>
               <Button
                 type="button"
                 data-style="ghost"

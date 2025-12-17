@@ -1,7 +1,7 @@
-import { mergeAttributes, Node } from '@tiptap/react'
-import { ReactNodeViewRenderer } from '@tiptap/react'
-import { ImageUploadNode as ImageUploadNodeComponent } from '@/components/tiptap-node/image-upload-node/image-upload-node'
 import type { NodeType } from '@tiptap/pm/model'
+import { mergeAttributes, Node, ReactNodeViewRenderer } from '@tiptap/react'
+
+import { ImageUploadNode as ImageUploadNodeComponent } from '@/components/tiptap-node/image-upload-node/image-upload-node'
 
 export type UploadFunction = (
   file: File,
@@ -101,18 +101,39 @@ export const ImageUploadNode = Node.create<ImageUploadNodeOptions>({
     }
   },
 
+  /* 解析HTML，互转 */
   parseHTML() {
     return [{ tag: 'div[data-type="image-upload"]' }]
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['div', mergeAttributes({ 'data-type': 'image-upload' }, HTMLAttributes)]
+    return [
+      'div',
+      mergeAttributes(
+        { 'data-type': 'image-upload', hidden: '', contenteditable: false, draggable: false },
+        HTMLAttributes,
+      ),
+    ]
   },
 
+  // 渲染组件
   addNodeView() {
+    // return ({ node, editor, getPos }) => {
+    //   const dom = document.createElement('div')
+    //   dom.className = 'v'
+    //   dom.textContent = '...'
+    //   return {
+    //     dom,
+    //     update(newNode) {
+    //       return true
+    //     },
+    //     destroy() {},
+    //   }
+    // }
     return ReactNodeViewRenderer(ImageUploadNodeComponent)
   },
 
+  // 注册命令，editor.commands.setImageUploadNode(...)
   addCommands() {
     return {
       setImageUploadNode:

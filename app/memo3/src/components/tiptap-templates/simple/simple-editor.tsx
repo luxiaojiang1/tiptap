@@ -246,7 +246,7 @@ export function SimpleEditor() {
           )}
         </Toolbar>
 
-        <EditorContent editor={editor} role="presentation" className="simple-editor-content" />
+        <EditorContent editor={editor} role="presentation" className="simple-editor-content ProseMirror" />
       </EditorContext.Provider>
     </div>
   )
