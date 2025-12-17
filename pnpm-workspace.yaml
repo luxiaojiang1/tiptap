@@ -6,7 +6,7 @@ packages:
 
 catalog:
   "@l_h5_tool/eslint-config": ^0.0.4
-  "@l_h5_tool/h5_shoelace_ui": ^0.0.2
+  "@l_h5_tool/h5_shoelace_ui": ^0.0.5
   "@l_h5_tool/stylelint-config": ^0.0.3
   "@l_h5_tool/ts-config": ^0.0.2
   "@l_h5_tool/log": "^0.1.8"

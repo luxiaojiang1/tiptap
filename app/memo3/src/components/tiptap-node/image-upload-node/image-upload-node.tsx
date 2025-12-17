@@ -5,6 +5,7 @@ import { NodeViewWrapper } from '@tiptap/react'
 import { useRef, useState } from 'react'
 import { CloseIcon } from '@/components/tiptap-icons/close-icon'
 import { Button } from '@/components/tiptap-ui-primitive/button'
+import { EmitHoseSelectFile, OnHostSelectFileEnd } from '@/host_event/self_event/upload_file_event.ts'
 import { focusNextNode, isValidPosition } from '@/lib/tiptap-utils'
 import '@/components/tiptap-node/image-upload-node/image-upload-node.scss'
 
@@ -383,7 +384,7 @@ const DropZoneContent: React.FC<{ maxSize: number; limit: number }> = ({ maxSize
       </span>
       <span className="tiptap-image-upload-subtext">
         Maximum {limit} file
-        {limit === 1 ? '' : 's'}, {maxSize / 1024 / 1024}
+        {limit === 1 ? '' : 's'},{maxSize / 1024 / 1024}
         MB each.
       </span>
     </div>
@@ -456,7 +457,15 @@ export const ImageUploadNode: React.FC<NodeViewProps> = props => {
 
   const hasFiles = fileItems.length > 0
 
-  return (
+  const [localSrc, setLocalSrc] = useState('')
+  OnHostSelectFileEnd(({ localSrc }) => {
+    console.log('OnHostSelectFileEnd 1', localSrc)
+    // 得到 localSrc
+    setLocalSrc(localSrc)
+  })
+  return localSrc ? (
+    <img style={{ width: '200px', height: '200px' }} src={localSrc} />
+  ) : (
     <NodeViewWrapper className="tiptap-image-upload" tabIndex={0} onClick={handleClick}>
       {!hasFiles && (
         <ImageUploadDragArea onFile={handleUpload}>
@@ -490,6 +499,14 @@ export const ImageUploadNode: React.FC<NodeViewProps> = props => {
         </div>
       )}
 
+      <button
+        onClick={e => {
+          e.stopPropagation()
+          EmitHoseSelectFile({})
+        }}
+      >
+        通知打开文件
+      </button>
       <input
         ref={inputRef}
         name="file"
