@@ -2,6 +2,7 @@ packages:
   - "packages/*"
   - "packages-deprecated/*"
   - "demos"
+  - "app/*"
 
 catalog:
   "@l_h5_tool/eslint-config": ^0.0.4

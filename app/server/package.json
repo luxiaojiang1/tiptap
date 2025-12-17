@@ -1,9 +1,10 @@
 {
-  "name": "snyc_server",
+  "name": "memo3_server",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,5 +13,9 @@
   "dependencies": {
     "@hocuspocus/server": "^3.4.3",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "yjs": "13.6.27"
   }
 }

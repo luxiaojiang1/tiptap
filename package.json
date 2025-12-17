@@ -14,6 +14,7 @@
     "start": "pnpm --prefix ./demos run start",
     "dev": "pnpm run start",
     "dev:vue_main": "pnpm --filter=vue_main run dev",
+    "dev:memo3_server": "pnpm --filter=memo3_server run dev",
     "dev:memo3": "pnpm --filter=memo3 run dev",
     "lint": "turbo run lint",
     "lint:fix": "prettier -w --log-level warn . && eslint --fix --cache --quiet --no-error-on-unmatched-pattern .",
@@ -100,6 +101,10 @@
     ]
   },
   "pnpm": {
+    "overrides": {
+      "react": "18.2.0",
+      "react-dom": "18.2.0"
+    },
     "patchedDependencies": {
       "@changesets/assemble-release-plan": "patches/@changesets__assemble-release-plan.patch"
     }

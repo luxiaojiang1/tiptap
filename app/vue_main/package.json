@@ -9,7 +9,7 @@
     "lint:style": "stylelint \"src/**/*.{css,vue}\"",
     "lint:style:fix": "stylelint \"src/**/*.{css,vue}\" --fix",
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build1": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
